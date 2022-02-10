@@ -12,7 +12,7 @@ function App() {
 				<Nav />
 				<Routes>
 					<Route path='/set-habit' element={<SetHabit />} />
-          <Route path='/' element={<Habits />} />
+					<Route path='/' element={<Habits />} />
 				</Routes>
 			</Container>
 		</Router>
