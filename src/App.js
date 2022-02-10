@@ -1,5 +1,5 @@
 import { Container } from './components/Container';
-import Nav from './components/Nav';
+import Nav from './components/Nav/Nav';
 import Habits from './components/Habits';
 import SetHabit from './components/SetHabit';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
