@@ -1,6 +1,6 @@
 import { Container } from './components/Container';
 import Nav from './components/Nav/Nav';
-import Habits from './components/Habits';
+import Habits from './components/Habits/Habits';
 import SetHabit from './components/SetHabit';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';

@@ -8,7 +8,7 @@ export const NavEl = styled.div`
 	width: 100%;
 	display: grid;
 	grid-template-columns: ${(props) => props.columns};
-	grid-gap: 100px;
+	grid-gap: 95px;
 	justify-content: center;
 	padding-top: 61px;
 `;
