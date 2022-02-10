@@ -10,7 +10,8 @@ export const NavEl = styled.div`
 	grid-template-columns: ${(props) => props.columns};
 	grid-gap: 95px;
 	justify-content: center;
-	padding-top: 61px;
+	padding-top: 50px;
+	padding-bottom: 12px;
 `;
 export const Title = styled.div`
 	font-size: 16px;

@@ -1,8 +1,23 @@
 import { useState } from 'react';
-import { Calendar, DateCircle, DateText} from './HabitsComponents';
+import { Link } from 'react-router-dom';
+import {
+	Calendar,
+	DateCircle,
+	DateText,
+	NoHabitSet,
+	ActionContainer,
+	HomeButton,
+	AddButton,
+	BarChartButton,
+} from './HabitsComponents';
 
 const Habits = () => {
 	const [habits, setHabits] = useState([]);
+
+	// const addHabit = (newHabit) => {
+	// 	setHabits([...habits, newHabit]);
+	// }
+
 	const calendarDates = [
 		{ day: 'MON', date: 24 },
 		{ day: 'TUES', date: 25 },
@@ -23,7 +38,17 @@ const Habits = () => {
 					</DateCircle>
 				))}
 			</Calendar>
-			{habits.length === 0 && <div>You have not set any habits yet.</div>}
+
+			{habits.length === 0 && (
+				<NoHabitSet>You have not set any habits yet.</NoHabitSet>
+			)}
+			<ActionContainer>
+				<HomeButton />
+				<Link to={'/set-habit'}>
+					<AddButton />
+				</Link>
+				<BarChartButton />
+			</ActionContainer>
 		</>
 	);
 };
