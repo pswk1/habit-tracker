@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
 	Calendar,
@@ -11,13 +10,7 @@ import {
 	BarChartButton,
 } from './HabitsComponents';
 
-const Habits = () => {
-	const [habits, setHabits] = useState([]);
-
-	// const addHabit = (newHabit) => {
-	// 	setHabits([...habits, newHabit]);
-	// }
-
+const Habits = ({ habits }) => {
 	const calendarDates = [
 		{ day: 'MON', date: 24 },
 		{ day: 'TUES', date: 25 },
@@ -39,12 +32,16 @@ const Habits = () => {
 				))}
 			</Calendar>
 
-			{habits.length === 0 && (
+			{habits.length === 0 ? (
 				<NoHabitSet>You have not set any habits yet.</NoHabitSet>
-			)}
+			) :
+			<NoHabitSet>There are habits set</NoHabitSet>
+			}
 			<ActionContainer>
 				<HomeButton />
-				<Link to={'/set-habit'}>
+				<Link 
+					to={'/set-habit'} 
+				>
 					<AddButton />
 				</Link>
 				<BarChartButton />

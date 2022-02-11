@@ -1,17 +1,20 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
 	SetHabitContainer,
-	GoalEl,
+	SelectEl,
 	Text,
 	Option,
-	PerDayEl,
+	RowEl,
 	Counter,
 	CounterBox,
 	IncrementBtn,
 	DecrementBtn,
+	TextArea,
+	SubmitBtn,
 } from './SetHabitComponents';
 
-const SetHabit = () => {
+const SetHabit = ({ habits, setHabits }) => {
 	const [newHabit, setNewHabit] = useState({
 		goalPeriod: '',
 		frequency: 0,
@@ -24,57 +27,115 @@ const SetHabit = () => {
 		setNewHabit(selected);
 	};
 
-	const handleFrequency = (type) => {
-		let newFreq;
+	const updateFrequency = (type) => {
+		let newFreq =
+			type === 'increment' ? newHabit.frequency + 1 : newHabit.frequency - 1;
 
-    if (type === 'increment') {
-      newFreq = newHabit.frequency + 1
-    } else {
-      newFreq = newHabit.frequency - 1;
-    }
+		if (newFreq < 0) newFreq = 0;
 
-    if (newFreq < 0) newFreq = 0;
-
-			const updatedHabit = {
-        ...newHabit,
-        frequency: newFreq
-      }
-			setNewHabit(updatedHabit);
-		
+		const updatedHabit = {
+			...newHabit,
+			frequency: newFreq,
+		};
+		setNewHabit(updatedHabit);
 	};
 
+	const handleMotivation = (e) => {
+		let userTextInput = e.target.value;
+		setNewHabit({
+			...newHabit,
+			motivation: userTextInput,
+		});
+	};
+
+	const navigate = useNavigate();
+
+	const addHabit = () => {
+		setHabits([...habits, newHabit]);
+		navigate('/');
+	};
 	return (
 		<SetHabitContainer>
-			<GoalEl>
+			<SelectEl>
 				<Text>Goal Period</Text>
 				<Option
-					selected={newHabit.goalPeriod === 'Daily' ? true : false}
+					selected={newHabit.goalPeriod === 'Daily' && true}
 					onClick={() => selectOption('goalPeriod', 'Daily')}
 				>
 					Daily
 				</Option>
 				<Option
-					selected={newHabit.goalPeriod === 'Weekly' ? true : false}
+					selected={newHabit.goalPeriod === 'Weekly' && true}
 					onClick={() => selectOption('goalPeriod', 'Weekly')}
 				>
 					Weekly
 				</Option>
 				<Option
-					selected={newHabit.goalPeriod === 'Monthly' ? true : false}
+					selected={newHabit.goalPeriod === 'Monthly' && true}
 					onClick={() => selectOption('goalPeriod', 'Monthly')}
 				>
 					Monthly
 				</Option>
-			</GoalEl>
+			</SelectEl>
 
-			<PerDayEl>
+			<RowEl>
 				<Text>How many times per day?</Text>
 				<CounterBox>
-					<DecrementBtn onClick={() => handleFrequency('decrement')} />
+					<DecrementBtn onClick={() => updateFrequency('decrement')} />
 					<Counter>{newHabit.frequency}</Counter>
-					<IncrementBtn onClick={() => handleFrequency('increment')} />
+					<IncrementBtn onClick={() => updateFrequency('increment')} />
 				</CounterBox>
-			</PerDayEl>
+			</RowEl>
+
+			<SelectEl>
+				<Text>Time Of Day</Text>
+				<Option
+					selected={newHabit.timeOfDay === 'Anytime' && true}
+					onClick={() => selectOption('timeOfDay', 'Anytime')}
+				>
+					Anytime
+				</Option>
+				<Option
+					selected={newHabit.timeOfDay === 'Morning' && true}
+					onClick={() => selectOption('timeOfDay', 'Morning')}
+				>
+					Morning
+				</Option>
+				<Option
+					selected={newHabit.timeOfDay === 'Afternoon' && true}
+					onClick={() => selectOption('timeOfDay', 'Afternoon')}
+				>
+					Afternoon
+				</Option>
+				<Option
+					selected={newHabit.timeOfDay === 'Evening' && true}
+					onClick={() => selectOption('timeOfDay', 'Evening')}
+				>
+					Evening
+				</Option>
+			</SelectEl>
+
+			<RowEl>
+				<Text>Start Date</Text>
+				<Text bold>May 28</Text>
+			</RowEl>
+
+			<RowEl>
+				<Text>End Date</Text>
+				<Text bold>None</Text>
+			</RowEl>
+
+			<RowEl>
+				<Text>Reminders</Text>
+				<Text bold>5:00 PM</Text>
+			</RowEl>
+
+			<RowEl>
+				<Text>Write something to motivate yourself:</Text>
+			</RowEl>
+
+			<TextArea value={newHabit.motivation} onChange={handleMotivation} />
+			<SubmitBtn onClick={addHabit}>Next</SubmitBtn>
 		</SetHabitContainer>
 	);
 };
