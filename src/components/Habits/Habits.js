@@ -32,7 +32,7 @@ const Habits = () => {
 		<>
 			<Calendar>
 				{calendarDates.map(({ day, date }) => (
-					<DateCircle>
+					<DateCircle key={day}>
 						<DateText type='day'>{day}</DateText>
 						<DateText type='dateNum'>{date}</DateText>
 					</DateCircle>
