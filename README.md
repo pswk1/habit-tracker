@@ -3,6 +3,9 @@
 ## Description
 A prototype of a simple habit tracker app in React, as a part of Wild Earth's code challenge.
 
+## Deploy
+[Deployed on Netlify](https://pk-habit-tracker.netlify.app/)
+
 ## Tech
 - React
 - Styled-Components
