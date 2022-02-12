@@ -50,10 +50,32 @@ const SetHabit = ({ habits, setHabits }) => {
 
 	const navigate = useNavigate();
 
-	const addHabit = () => {
-		setHabits([...habits, newHabit]);
-		navigate('/');
+	const compareHabits = () => {
+		const unchanged = {
+			goalPeriod: '',
+			frequency: 0,
+			timeOfDay: '',
+			motivation: '',
+		};
+		const unchangedKeys = Object.keys(unchanged);
+
+		for (let key of unchangedKeys) {
+			if (unchanged[key] !== newHabit[key]) {
+				return false;
+			}
+		}
+		return true;
 	};
+
+	const addHabit = () => {
+		if (compareHabits()) {
+			navigate('/');
+		} else {
+			setHabits([...habits, newHabit]);
+			navigate('/');
+		}
+	};
+
 	return (
 		<SetHabitContainer>
 			<SelectEl>

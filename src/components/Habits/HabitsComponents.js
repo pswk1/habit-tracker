@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import homeIcon from '../../icons/home.svg';
 import addButtonIcon from '../../icons/add-button.svg';
 import barChartIcon from '../../icons/bar-chart.svg';
+import incrementIcon from '../../icons/+.svg';
 
 export const Calendar = styled.div`
 	margin: 2rem 1rem;
@@ -17,8 +18,7 @@ export const DateCircle = styled.div`
 	border-radius: 50%;
 	display: flex;
 	flex-direction: column;
-	padding-top: 0.2rem;
-	padding-bottom: 0.2rem;
+	padding: 0.2rem 0;
 `;
 export const DateText = styled.span`
 	font-family: Poppins;
@@ -34,6 +34,43 @@ export const NoHabitSet = styled.div`
 	height: 6.9375rem;
 	margin: 13.25rem auto 17.1875rem;
 	text-align: center;
+`;
+
+export const HabitsList = styled.div`
+	width: 20.44rem;
+	height: 40.5rem;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 0.5rem;
+`;
+export const Habit = styled.div`
+	width: 20.4375rem;
+	height: 3.75rem;
+	background: #dddddd;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding 0 1rem;
+	margin-top: 0.5rem;
+`;
+
+export const HabitText = styled.div`
+	font-family: Poppins;
+	font-size: 14px;
+	line-height: 21px;
+	${({ bold }) => bold && `font-weight: bold;`}
+`;
+
+export const HabitTextBox = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 8.0625rem;
+	height: 3rem;
 `;
 
 export const ActionContainer = styled.div`
@@ -56,6 +93,15 @@ export const ActionContainer = styled.div`
 		right: 0px;
 		border: 6px solid white;
 	}
+`;
+
+export const IncrementBtn = styled.img.attrs({
+	src: incrementIcon,
+	alt: 'increment',
+})`
+	pointer: cursor;
+	height: 1rem;
+	width: 1rem;
 `;
 
 export const HomeButton = styled.img.attrs({

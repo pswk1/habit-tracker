@@ -8,9 +8,15 @@ import {
 	HomeButton,
 	AddButton,
 	BarChartButton,
+	HabitsList,
+	Habit,
+	HabitText,
+	HabitTextBox,
+	IncrementBtn
 } from './HabitsComponents';
 
 const Habits = ({ habits }) => {
+	console.log(habits);
 	const calendarDates = [
 		{ day: 'MON', date: 24 },
 		{ day: 'TUES', date: 25 },
@@ -35,7 +41,19 @@ const Habits = ({ habits }) => {
 			{habits.length === 0 ? (
 				<NoHabitSet>You have not set any habits yet.</NoHabitSet>
 			) :
-			<NoHabitSet>There are habits set</NoHabitSet>
+			<HabitsList>
+				{habits.map(({ motivation, frequency }, i) => (
+					<Habit key={i}>
+						<HabitTextBox>
+							<HabitText bold>{motivation}</HabitText>
+							<HabitText>
+							TODAY: 0 / {frequency}
+							</HabitText>
+						</HabitTextBox>
+						<IncrementBtn />
+					</Habit>
+				))}
+			</HabitsList>
 			}
 			<ActionContainer>
 				<HomeButton />
