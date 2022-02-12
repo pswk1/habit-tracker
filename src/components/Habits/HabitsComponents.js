@@ -19,6 +19,9 @@ export const DateCircle = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 0.2rem 0;
+	&:last-child {
+        border: 1px solid #EF476F;
+    }
 `;
 export const DateText = styled.span`
 	font-family: Poppins;

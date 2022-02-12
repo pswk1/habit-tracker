@@ -24,8 +24,7 @@ export const RowEl = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-    margin-top: 1rem;
-	margin-bottom: 0.2rem;
+	padding: 1.7rem 0rem;
 `;
 
 export const Text = styled.div`
@@ -49,7 +48,7 @@ export const Option = styled.span`
 
 export const CounterBox = styled.div`
 	height: 2.25rem;
-	width: 3.11375rem;
+	width: 3.6rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -65,7 +64,6 @@ export const Counter = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0 2px;
 `;
 
 export const DecrementBtn = styled.div`
@@ -90,7 +88,8 @@ export const TextArea = styled.textarea`
 	border: 1px solid rgba(56, 56, 56, 0.6);
 	box-sizing: border-box;
 	border-radius: 10px;
-	margin-bottom: 6rem;
+	margin-bottom: 4rem;
+	margin-top: -1rem;
 `;
 
 export const SubmitBtn = styled.button`
