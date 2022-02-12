@@ -16,7 +16,6 @@ import {
 } from './HabitsComponents';
 
 const Habits = ({ habits }) => {
-	console.log(habits);
 	const calendarDates = [
 		{ day: 'MON', date: 24 },
 		{ day: 'TUES', date: 25 },
