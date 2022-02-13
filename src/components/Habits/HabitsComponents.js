@@ -20,8 +20,8 @@ export const DateCircle = styled.div`
 	flex-direction: column;
 	padding: 0.2rem 0;
 	&:last-child {
-        border: 1px solid #EF476F;
-    }
+		border: 1px solid #ef476f;
+	}
 `;
 export const DateText = styled.span`
 	font-family: Poppins;
@@ -72,7 +72,8 @@ export const HabitText = styled.div`
 export const HabitTextBox = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 8.0625rem;
+	width: -moz-fit-content;
+	width: fit-content;
 	height: 3rem;
 `;
 
