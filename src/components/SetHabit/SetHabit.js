@@ -48,18 +48,20 @@ const SetHabit = ({ habits, setHabits }) => {
 		});
 	};
 
-	const navigate = useNavigate();
+	// Why are we checking for an "empty habit"?
+	// An empty habit is one without any input regarding user goal period, frequency, etc
+	// We won't add an empty habit to our list, so attempting to do so will navigate back to the home page without adding it.
 
-	const compareHabits = () => {
+	// We compare the current newHabit state with an object that represents a habit with no user input.
+	const isHabitEmpty = () => {
 		const unchanged = {
 			goalPeriod: '',
 			frequency: 0,
 			timeOfDay: '',
 			motivation: '',
 		};
-		const unchangedKeys = Object.keys(unchanged);
 
-		for (let key of unchangedKeys) {
+		for (let key of Object.keys(unchanged)) {
 			if (unchanged[key] !== newHabit[key]) {
 				return false;
 			}
@@ -67,13 +69,13 @@ const SetHabit = ({ habits, setHabits }) => {
 		return true;
 	};
 
+	const navigate = useNavigate();
+
 	const addHabit = () => {
-		if (compareHabits()) {
-			navigate('/');
-		} else {
+		if (!isHabitEmpty()) {
 			setHabits([...habits, newHabit]);
-			navigate('/');
 		}
+		navigate('/');
 	};
 
 	return (
