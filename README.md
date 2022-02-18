@@ -1,7 +1,7 @@
-# Wild Earth Code Challenge
+# Simple Habit Tracker
 
 ## Description
-A prototype of a simple habit tracker app in React, as a part of Wild Earth's code challenge.
+A prototype of a simple habit tracker app in React
 
 ## Deploy
 [Deployed on Netlify](https://pk-habit-tracker.netlify.app/)
