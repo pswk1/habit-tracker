@@ -5,6 +5,7 @@ import {
 	SelectEl,
 	Text,
 	Option,
+	OptionContainer,
 	RowEl,
 	Counter,
 	CounterBox,
@@ -20,6 +21,7 @@ const SetHabit = ({ habits, setHabits }) => {
 		frequency: 0,
 		timeOfDay: '',
 		motivation: '',
+		complete: false
 	});
 
 	const selectOption = (category, val) => {
@@ -59,6 +61,7 @@ const SetHabit = ({ habits, setHabits }) => {
 			frequency: 0,
 			timeOfDay: '',
 			motivation: '',
+			complete: false
 		};
 
 		for (let key of Object.keys(unchanged)) {
@@ -82,24 +85,26 @@ const SetHabit = ({ habits, setHabits }) => {
 		<SetHabitContainer>
 			<SelectEl>
 				<Text>Goal Period</Text>
-				<Option
-					selected={newHabit.goalPeriod === 'Daily' && true}
-					onClick={() => selectOption('goalPeriod', 'Daily')}
-				>
-					Daily
-				</Option>
-				<Option
-					selected={newHabit.goalPeriod === 'Weekly' && true}
-					onClick={() => selectOption('goalPeriod', 'Weekly')}
-				>
-					Weekly
-				</Option>
-				<Option
-					selected={newHabit.goalPeriod === 'Monthly' && true}
-					onClick={() => selectOption('goalPeriod', 'Monthly')}
-				>
-					Monthly
-				</Option>
+				<OptionContainer>
+					<Option
+						selected={newHabit.goalPeriod === 'Daily' && true}
+						onClick={() => selectOption('goalPeriod', 'Daily')}
+					>
+						Daily
+					</Option>
+					<Option
+						selected={newHabit.goalPeriod === 'Weekly' && true}
+						onClick={() => selectOption('goalPeriod', 'Weekly')}
+					>
+						Weekly
+					</Option>
+					<Option
+						selected={newHabit.goalPeriod === 'Monthly' && true}
+						onClick={() => selectOption('goalPeriod', 'Monthly')}
+					>
+						Monthly
+					</Option>
+				</OptionContainer>
 			</SelectEl>
 
 			<RowEl>

@@ -7,19 +7,28 @@ export const SetHabitContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	align-items: flex-start;
+	align-items: center;
 	padding: 2.1875rem;
 `;
 
 export const SelectEl = styled.div`
 	height: 3.4375rem;
-	width: 20.75rem;
-    margin-bottom: 1rem;
+	width: 100%;
+	margin-bottom: 1rem;
+`;
+
+export const OptionContainer = styled.div`
+	dislay: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	height: fit-content;
+	block-size: fit-content;
 `;
 
 export const RowEl = styled.div`
 	height: 2.25rem;
-	width: 19.39rem;
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -83,7 +92,7 @@ export const IncrementBtn = styled.img.attrs({
 
 export const TextArea = styled.textarea`
 	height: 5.625rem;
-	width: 19.25rem;
+	width: 80%;
 	background: rgba(255, 255, 255, 0.6);
 	border: 1px solid rgba(56, 56, 56, 0.6);
 	box-sizing: border-box;
@@ -97,10 +106,10 @@ export const SubmitBtn = styled.button`
 	width: 18.25rem;
 	background: #000000;
 	border-radius: 10px;
-	color: #FFFFFF;
-    font-size: 18px;
-    line-height: 21px;
-    letter-spacing: -0.65px;
-    font-weight: bold;
-    pointer: cursor;
+	color: #ffffff;
+	font-size: 18px;
+	line-height: 21px;
+	letter-spacing: -0.65px;
+	font-weight: bold;
+	pointer: cursor;
 `;

@@ -25,9 +25,9 @@ export const DateCircle = styled.div`
 `;
 export const DateText = styled.span`
 	font-family: Poppins;
-	font-size: ${(props) => (props.type === 'day' ? '0.5625rem' : '0.875rem')};
-	line-height: ${(props) => (props.type === 'day' ? '0.8125rem' : '1.3125rem')};
-	font-weight: ${(props) => props.type === 'dateNum' && 'bold'};
+	font-size: ${({ type }) => (type === 'day' ? '0.5625rem' : '0.875rem')};
+	line-height: ${({ type }) => (type === 'day' ? '0.8125rem' : '1.3125rem')};
+	font-weight: ${({ type }) => type === 'dateNum' && 'bold'};
 	text-align: center;
 	color: black;
 `;
@@ -40,7 +40,7 @@ export const NoHabitSet = styled.div`
 `;
 
 export const HabitsList = styled.div`
-	width: 20.44rem;
+	width: 100%;
 	height: 40.5rem;
 	margin: 0 auto;
 	display: flex;
@@ -50,7 +50,7 @@ export const HabitsList = styled.div`
 	margin-bottom: 0.5rem;
 `;
 export const Habit = styled.div`
-	width: 20.4375rem;
+	width: 80%;
 	height: 3.75rem;
 	background: #dddddd;
 	border-radius: 10px;
@@ -83,16 +83,16 @@ export const ActionContainer = styled.div`
 	display: grid;
 	grid-template-columns: 50px 70px 40px;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-evenly;
 	grid-gap: 45px;
-	padding-bottom: 1.125rem;
+	padding: 0 1.125rem 1.125rem;
 	position: relative;
 	border-bottom: 5px solid #ef476f;
 	&:after {
 		content: '';
 		display: block;
 		position: absolute;
-		width: 200px;
+		width: 53%;
 		bottom: -5px;
 		right: 0px;
 		border: 6px solid white;

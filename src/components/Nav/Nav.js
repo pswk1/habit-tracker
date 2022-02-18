@@ -7,7 +7,7 @@ const Nav = () => {
 
 	if (location.pathname === '/set-habit') {
 		return (
-			<NavEl columns='1.375rem 6.125rem 1.5rem'>
+			<NavEl columns='1rem 6.125rem 1.5rem'>
 				<Link style={{ textDecoration: 'none', color: 'black' }} to={'/'}>
 					Back
 				</Link>

@@ -8,13 +8,14 @@ export const NavEl = styled.div`
 	width: 100%;
 	display: grid;
 	grid-template-columns: ${(props) => props.columns};
-	grid-gap: 95px;
-	justify-content: center;
+	grid-gap: 5.9rem;
+	align-items: center;
+	justify-content: space-around;
 	padding-top: 50px;
 	padding-bottom: 12px;
 `;
 export const Title = styled.div`
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: 700;
 `;
 
@@ -22,14 +23,14 @@ export const SettingsIcon = styled.img.attrs({
 	src: settingsIcon,
 	alt: 'settings',
 })`
-	width: 22px;
-	height: 22px;
+	width: 1.375rem;
+	height: 1.375rem;
 `;
 
 export const SlidersIcon = styled.img.attrs({
 	src: slidersIcon,
 	alt: 'sliders',
 })`
-	width: 24px;
-	height: 24px;
+	width: 1.5rem;
+	height: 1.5rem;
 `;
