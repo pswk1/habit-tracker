@@ -52,7 +52,7 @@ export const HabitsList = styled.div`
 export const Habit = styled.div`
 	width: 80%;
 	height: 3.75rem;
-	background: #dddddd;
+	background: ${({ complete }) => (complete ? '#06D6A0' : '#dddddd')};
 	border-radius: 10px;
 	display: flex;
 	flex-direction: row;

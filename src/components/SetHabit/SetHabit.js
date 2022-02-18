@@ -17,6 +17,7 @@ import {
 
 const SetHabit = ({ habits, setHabits }) => {
 	const [newHabit, setNewHabit] = useState({
+		id: habits.length === 0 ? 0 : habits[habits.length - 1].id + 1,
 		goalPeriod: '',
 		frequency: 0,
 		timeOfDay: '',

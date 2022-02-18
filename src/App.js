@@ -15,7 +15,7 @@ function App() {
 				<Nav />
 				<Routes>
 					<Route path='/set-habit' element={<SetHabit habits={habits} setHabits={setHabits} />} />
-					<Route path='/' element={<Habits habits={habits} />} />
+					<Route path='/' element={<Habits habits={habits} setHabits={setHabits} />} />
 				</Routes>
 			</Container>
 		</Router>

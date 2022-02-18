@@ -12,10 +12,10 @@ import {
 	Habit,
 	HabitText,
 	HabitTextBox,
-	IncrementBtn
+	IncrementBtn,
 } from './HabitsComponents';
 
-const Habits = ({ habits }) => {
+const Habits = ({ habits, setHabits }) => {
 	const calendarDates = [
 		{ day: 'MON', date: 24 },
 		{ day: 'TUES', date: 25 },
@@ -25,6 +25,12 @@ const Habits = ({ habits }) => {
 		{ day: 'SAT', date: 29 },
 		{ day: 'SUN', date: 30 },
 	];
+
+	const handleComplete = (index) => {
+		const habitsCopy = [...habits];
+		habitsCopy[index] = { ...habitsCopy[index], complete: true };
+		setHabits(habitsCopy);
+	};
 
 	return (
 		<>
@@ -39,26 +45,26 @@ const Habits = ({ habits }) => {
 
 			{habits.length === 0 ? (
 				<NoHabitSet>You have not set any habits yet.</NoHabitSet>
-			) :
-			<HabitsList>
-				{habits.map(({ motivation, frequency }, i) => (
-					<Habit key={i}>
-						<HabitTextBox>
-							<HabitText bold>{motivation}</HabitText>
-							<HabitText>
-							TODAY: 0 / {frequency}
-							</HabitText>
-						</HabitTextBox>
-						<IncrementBtn />
-					</Habit>
-				))}
-			</HabitsList>
-			}
+			) : (
+				<HabitsList>
+					{habits.map(({ id, motivation, frequency, complete }, index) => (
+						<Habit key={id} complete={complete}>
+							<HabitTextBox>
+								<HabitText bold>{motivation}</HabitText>
+								<HabitText>
+									{complete ? '' : `TODAY: 0 / ${frequency}`}
+								</HabitText>
+							</HabitTextBox>
+							{complete ? 'Complete!' : (
+								<IncrementBtn onClick={() => handleComplete(index)} />
+							)}
+						</Habit>
+					))}
+				</HabitsList>
+			)}
 			<ActionContainer>
 				<HomeButton />
-				<Link 
-					to={'/set-habit'} 
-				>
+				<Link to={'/set-habit'}>
 					<AddButton />
 				</Link>
 				<BarChartButton />
