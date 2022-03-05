@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
 	Calendar,
@@ -34,7 +35,7 @@ const Habits = ({ habits, setHabits }) => {
 
 	return (
 		<>
-			<Calendar>
+			<Calendar data-testid='calendar'>
 				{calendarDates.map(({ day, date }) => (
 					<DateCircle key={day}>
 						<DateText type='day'>{day}</DateText>
@@ -44,9 +45,9 @@ const Habits = ({ habits, setHabits }) => {
 			</Calendar>
 
 			{habits.length === 0 ? (
-				<NoHabitSet>You have not set any habits yet.</NoHabitSet>
+				<NoHabitSet data-testid='no-habits'>You have not set any habits yet.</NoHabitSet>
 			) : (
-				<HabitsList>
+				<HabitsList data-testid='habits-list'>
 					{habits.map(({ id, motivation, frequency, complete }, index) => (
 						<Habit key={id} complete={complete}>
 							<HabitTextBox>
@@ -62,12 +63,12 @@ const Habits = ({ habits, setHabits }) => {
 					))}
 				</HabitsList>
 			)}
-			<ActionContainer>
-				<HomeButton />
-				<Link to={'/set-habit'}>
-					<AddButton />
+			<ActionContainer data-testid='action-container'>
+				<HomeButton data-testid='home-button'/>
+				<Link data-testid='link' to={'/set-habit'}>
+					<AddButton data-testid='add-button'/>
 				</Link>
-				<BarChartButton />
+				<BarChartButton data-testid='bar-chart-button'/>
 			</ActionContainer>
 		</>
 	);
