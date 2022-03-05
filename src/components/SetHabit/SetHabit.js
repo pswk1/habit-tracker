@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
 	SetHabitContainer,
@@ -22,8 +22,10 @@ const SetHabit = ({ habits, setHabits }) => {
 		frequency: 0,
 		timeOfDay: '',
 		motivation: '',
-		complete: false
+		complete: false,
 	});
+
+	const navigate = useNavigate();
 
 	const selectOption = (category, val) => {
 		const selected = Object.assign({}, newHabit, { [category]: val });
@@ -62,7 +64,7 @@ const SetHabit = ({ habits, setHabits }) => {
 			frequency: 0,
 			timeOfDay: '',
 			motivation: '',
-			complete: false
+			complete: false,
 		};
 
 		for (let key of Object.keys(unchanged)) {
@@ -72,8 +74,6 @@ const SetHabit = ({ habits, setHabits }) => {
 		}
 		return true;
 	};
-
-	const navigate = useNavigate();
 
 	const addHabit = () => {
 		if (!isHabitEmpty()) {
@@ -88,6 +88,7 @@ const SetHabit = ({ habits, setHabits }) => {
 				<Text>Goal Period</Text>
 				<OptionContainer>
 					<Option
+						data-testid='daily'
 						selected={newHabit.goalPeriod === 'Daily' && true}
 						onClick={() => selectOption('goalPeriod', 'Daily')}
 					>
@@ -113,7 +114,7 @@ const SetHabit = ({ habits, setHabits }) => {
 				<CounterBox>
 					<DecrementBtn onClick={() => updateFrequency('decrement')} />
 					<Counter>{newHabit.frequency}</Counter>
-					<IncrementBtn onClick={() => updateFrequency('increment')} />
+					<IncrementBtn data-testid='increment' onClick={() => updateFrequency('increment')} />
 				</CounterBox>
 			</RowEl>
 
@@ -165,7 +166,7 @@ const SetHabit = ({ habits, setHabits }) => {
 			</RowEl>
 
 			<TextArea value={newHabit.motivation} onChange={handleMotivation} />
-			<SubmitBtn onClick={addHabit}>Next</SubmitBtn>
+			<SubmitBtn data-testid='submit' onClick={addHabit}>Next</SubmitBtn>
 		</SetHabitContainer>
 	);
 };
