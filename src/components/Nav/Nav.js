@@ -8,10 +8,10 @@ const Nav = () => {
 	if (location.pathname === '/set-habit') {
 		return (
 			<NavEl columns='1rem 6.125rem 1.5rem'>
-				<Link style={{ textDecoration: 'none', color: 'black' }} to={'/'}>
+				<Link data-testid='go-back' style={{ textDecoration: 'none', color: 'black' }} to={'/'}>
 					Back
 				</Link>
-				<Title>Yoga Habit</Title>
+				<Title data-testid='set-habit-title'>Yoga Habit</Title>
 			</NavEl>
 		);
 	}

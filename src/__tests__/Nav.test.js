@@ -4,7 +4,6 @@ import { expect, test } from '@jest/globals';
 import { render } from '@testing-library/react';
 import Nav from '../components/Nav/Nav';
 import { MemoryRouter } from 'react-router-dom';
-import '@testing-library/jest-dom/extend-expect';
 
 describe('renders components of navbar component on homepage', () => {
 	test('renders settings icon, title, and sliders icon', async () => {
@@ -25,3 +24,21 @@ describe('renders components of navbar component on homepage', () => {
         expect(slidersIcon).toBeInTheDocument();
 	});
 });
+
+describe('renders components of navbar component on set habit', () => {
+    test('renders back link and yoga title', async () => {
+        const view = render(
+			<MemoryRouter initialEntries={[{ pathname: '/set-habit'  }]}>
+				<Nav />
+			</MemoryRouter>
+		);
+
+        const goBack = await view.findByTestId('go-back');
+        expect(goBack).toBeInTheDocument();
+        expect(goBack).toHaveTextContent('Back');
+
+        const setHabitTitle = await view.findByTestId('set-habit-title');
+        expect(setHabitTitle).toBeInTheDocument();
+        expect(setHabitTitle).toHaveTextContent('Yoga Habit');
+    })
+})
