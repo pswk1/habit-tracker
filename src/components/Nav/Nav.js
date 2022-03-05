@@ -17,11 +17,11 @@ const Nav = () => {
 	}
 	return (
 		<NavEl columns='1.375rem 6.125rem 1.5rem'>
-			<Link to={'#'}>
+			<Link data-testid='settings-icon' to={'#'}>
 				<SettingsIcon />
 			</Link>
-			<Title>Habit Tracker</Title>
-			<Link to={'#'}>
+			<Title data-testid='title'>Habit Tracker</Title>
+			<Link data-testid='sliders-icon' to={'#'}>
 				<SlidersIcon />
 			</Link>
 		</NavEl>
